@@ -84,8 +84,7 @@ void agregarUsuarios(void) {
       printf("\n Clientes Agregados: %d\n\n", i + 1);
       printf("Nombre: ");
       scanf("%s", arr_usuario[i].nombre);
-      printf("Numero de Cuenta: ");
-      scanf("%d", & arr_usuario[i].numero_cuenta);
+      arr_usuario[i].numero_cuenta = i+1;
       do {
         printf("Ingrese los fondos iniciales para la cuenta: ");
         scanf("%d", & fondos);
@@ -189,11 +188,9 @@ void retiros_depositos(int accion) {
             cant_billetes = floor(monto_retiro / denominaciones[j]);
             res = monto_retiro % denominaciones[j];
             monto_retiro = res;
-              printf("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
             if (cant_billetes != 0) {
               printf("Cantidad de billetes de %d mil: %d \n", denominaciones[j], cant_billetes);
             }
-              printf("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
           }
           cantidad_retiros++;
           printf("\n********************************\n");
@@ -203,10 +200,6 @@ void retiros_depositos(int accion) {
           printf("\n********************************\n");
 
         }
-      } else {
-        printf("\n//////////////////////////////////////////////////\n");
-        printf("ESA CUENTA NO EXISTE. POR FAVOR INTENTE CON UNA CUENTA EXISTENTE");
-        printf("\n//////////////////////////////////////////////////\n");
       }
     }
     break;
@@ -274,10 +267,6 @@ void retiros_depositos(int accion) {
             printf("\n********************************\n");
           }
         } while (verificado != 1);
-      } else {
-        printf("\n//////////////////////////////////////////////////\n");
-        printf("ESA CUENTA NO EXISTE. POR FAVOR INTENTE CON UNA CUENTA EXISTENTE");
-        printf("\n//////////////////////////////////////////////////\n");
       }
     }
     break;
